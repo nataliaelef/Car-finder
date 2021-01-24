@@ -1,0 +1,16 @@
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading">
+  <div class="cards-container">
+    <div class="card-item" (click)="modelClicked(model)" *ngFor="let model of models">
+      <img src="https://files.ontario.ca/cpo_vehicles_and_driving_icon.png" alt="car">
+      <div class="card-title-container">
+        {{model}}
+      </div>
+    </div>
+  </div>
+  <app-error [show]="error"></app-error>
+  <div class="center" *ngIf="!models.length && !error">No models found for this brand!</div>
+</div>

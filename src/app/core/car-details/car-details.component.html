@@ -1,0 +1,22 @@
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading">
+  <div class="cards-container">
+    <div class="card-item" *ngFor="let vehicle of vehicles">
+      <img src="https://files.ontario.ca/cpo_vehicles_and_driving_icon.png" alt="car">
+      <div class="card-title-container">
+        <p>Make: {{vehicle.make}}</p>
+        <p>Model: {{vehicle.model}}</p>
+        <p>Engine Power PS: {{vehicle.enginePowerPS}}</p>
+        <p>Engine Power KW: {{vehicle.enginePowerKW}}</p>
+        <p>Fuel Type: {{vehicle.fuelType}}</p>
+        <p>Body Type: {{vehicle.bodyType}}</p>
+        <p>Engine Capacity: {{vehicle.engineCapacity}}</p>
+      </div>
+    </div>
+  </div>
+  <app-error [show]="error"></app-error>
+  <div class="center" *ngIf="!vehicles.length && !error">No vehicles found for this model!</div>
+</div>

@@ -1,0 +1,22 @@
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading && !error">
+  <h1>Find a car</h1>
+
+  <div class="cards-container">
+    <div class="card-item" (click)="goToModelsPage(make)" *ngFor="let make of visibleMakes">
+      <img src="https://files.ontario.ca/cpo_vehicles_and_driving_icon.png" alt="car">
+      <div class="card-title-container">
+        {{make}}
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-container">
+    <button (click)="showMoreMakes()" *ngIf="buttonVisible">Show more</button>
+  </div>
+</div>
+
+<app-error [show]="error"></app-error>
